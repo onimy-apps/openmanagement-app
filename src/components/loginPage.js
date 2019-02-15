@@ -34,7 +34,7 @@ class LoginPage extends Component {
     return (
       <div>
         <h3>Login Page</h3>
-        {!isSuccess ? <div>{message}</div> : <Redirect to='dashboard' />}
+        {!isSuccess ? <div>{message}</div> : <Redirect to='admin' />}
         <form onSubmit={this.onHandleLogin}>
           <div>
             <label>Username</label>
