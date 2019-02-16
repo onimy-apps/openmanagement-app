@@ -34,13 +34,23 @@ class New extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    console.log(nextProps)
-    console.log(prevState)
+    if (nextProps.newReducer.hasOwnProperty('response')) {
+      return {
+        success: nextProps.newReducer.response.success,
+        message: nextProps.newReducer.response.message
+      }
+    } else {
+      return {
+        success: undefined,
+        message: undefined
+      }
+    }
   }
 
   render() {
     return (
       <div>
+        <div className={(this.state.success) ? 'success' : 'error'}>{this.state.message}</div>
         <form onSubmit={this.onSaveNewEmployee.bind(this)}>
           <div>
             <label>Name</label>
