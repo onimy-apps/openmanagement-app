@@ -1,7 +1,6 @@
 import { getCookie } from '../../utils/cookies';
 
 export const newService = (request) => {
-  console.log(request.user);
   const NEW_API_ENDPOINT = 'http://localhost:3000/api/v1/admin/new';
   
   const parameters = {
@@ -18,7 +17,6 @@ export const newService = (request) => {
       return response.json();
     })
     .then(json => {
-      console.log(json);
       return json;
     });
 };
