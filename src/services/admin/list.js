@@ -17,5 +17,7 @@ export const listService = (request) => {
     })
     .then(json => {
       return json;
+    }).catch(error => {
+      return error;
     });
 };
