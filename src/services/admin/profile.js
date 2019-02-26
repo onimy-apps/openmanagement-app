@@ -1,7 +1,8 @@
 import { getCookie } from '../../utils/cookies';
 
-export const listService = (request) => {
-  const LIST_ENDPOINT = 'http://localhost:3000/api/v1/admin/list';
+export const profileService = (request) => {
+  const query = `?id=${request.payload.id}&role=${request.payload.role}`;
+  const LIST_ENDPOINT = `http://localhost:3000/api/v1/admin/profile${query}`;
   
   const parameters = {
     method: 'GET',
@@ -13,7 +14,8 @@ export const listService = (request) => {
 
   return fetch(LIST_ENDPOINT, parameters)
     .then(response => {
-      if (response.status !== 200) return { status: response.status, text: response.statusText };
+      if (response.status !== 200)
+        return { status: response.status, text: response.statusText };
       return response.json();
     })
     .then(json => {
