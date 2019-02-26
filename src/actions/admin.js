@@ -19,3 +19,10 @@ export const adminProfileAction = (payload) => {
     payload: payload
   }
 }
+
+export const adminProfileUpdateAction = (payload) => {
+  return {
+    type: types.UPDATE_ADMIN_PROFILE,
+    payload: payload
+  }
+}
