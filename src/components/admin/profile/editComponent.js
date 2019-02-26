@@ -44,6 +44,10 @@ class Edit extends Component {
     this._success = true;
   }
 
+  onCancelHandle = event => {
+    this._success = false;
+  }
+
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.updateProfile.hasOwnProperty('response')) {
       return {
@@ -114,6 +118,7 @@ class Edit extends Component {
           </div>
           <div>
             <button>Update</button>
+            <button onClick={this.onCancelHandle.bind(this)}>Cancel</button>
           </div>
         </form>
       </div>
