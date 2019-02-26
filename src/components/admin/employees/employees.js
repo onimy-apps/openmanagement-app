@@ -14,6 +14,10 @@ class Employees extends Component {
       return <div>Loading...</div>
     }
 
+    if (this.props.list.response.hasOwnProperty('status')) {
+      return <div>{this.props.list.response.status} {this.props.list.response.text}</div>
+    }
+
     return (
       <div>
         <ul>
