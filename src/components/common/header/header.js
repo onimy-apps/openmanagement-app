@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 
-import Employees from '../../admin/employees/employees';
-import New from '../../admin/new/new';
-import Profile from '../../admin/profile/profile';
+import Employees from '../../admin/employees/employeesComponent';
+import New from '../../admin/new/newComponent';
+import Profile from '../../admin/profile/profileComponent';
 
 const Header = ({ match }) => (
   <div>

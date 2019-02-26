@@ -1,9 +1,9 @@
 import { put, call } from 'redux-saga/effects';
-import { listService } from '../../services/admin/list';
+import { listService } from '../../services/admin/listService';
 
 import * as types from '../../actions'
 
-export function* listSaga(payload) {
+export function* list(payload) {
   try {
     const response = yield call(listService, payload);
     yield [

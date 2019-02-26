@@ -1,9 +1,9 @@
 import { put, call } from 'redux-saga/effects';
-import { profileService } from '../../services/admin/profile';
+import { profileService } from '../../services/admin/profileService';
 
 import * as types from '../../actions'
 
-export function* profileSaga(payload) {
+export function* profile(payload) {
   try {
     const response = yield call(profileService, payload);
     yield [
