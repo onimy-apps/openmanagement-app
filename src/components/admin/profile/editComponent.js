@@ -61,27 +61,43 @@ class Edit extends Component {
         <form onSubmit={this.onUpdateProfile.bind(this)}>
           <div>
             <label>Name</label>
-            <input type='text' name='name' defaultValue={this.props.adminProfile.response.name} />
+            <input
+              type='text'
+              name='name'
+              defaultValue={this.props.adminProfile.response.name} />
           </div>
           <div>
             <label>Email</label>
-            <input type='email' name='email' defaultValue={this.props.adminProfile.response.email} />
+            <input
+              type='email'
+              name='email'
+              defaultValue={this.props.adminProfile.response.email} />
           </div>
           <div>
             <label>Position</label>
-            <input type='text' name='position' defaultValue={this.props.adminProfile.response.position} />
+            <input
+              type='text'
+              name='position'
+              defaultValue={this.props.adminProfile.response.position} />
           </div>
           <div>
             <label>Username</label>
-            <input type='text' name='username' defaultValue={this.props.adminProfile.response.username} />
+            <input
+              type='text'
+              name='username'
+              defaultValue={this.props.adminProfile.response.username} />
           </div>
           <div>
             <label>Password</label>
-            <input type='password' name='password' />
+            <input
+              type='password'
+              name='password' />
           </div>
           <div>
             <label>Role</label>
-            <select name='role' defaultValue={this.props.adminProfile.response.role}>
+            <select
+              name='role'
+              defaultValue={this.props.adminProfile.response.role}>
               <option>Select One</option>
               <option value='Employee'>Employee</option>
               <option value='Manager'>Manager</option>
