@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 class Edit extends Component {
+  _success = undefined;
+
   state = {
     cookies: {
       id: getCookie('id'),
@@ -38,6 +40,8 @@ class Edit extends Component {
         access: this.state.cookies
       }));
     });
+
+    this._success = true;
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -54,10 +58,14 @@ class Edit extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this._success = false;
+  }
+
   render() {
     return (
       <div>
-        {(this.state.success) ? <Redirect to='/admin/profile' /> : <div>{this.state.message}</div>}
+        {(this._success) ? <Redirect to='/admin/profile' /> : <div>{this.state.message}</div>}
         <form onSubmit={this.onUpdateProfile.bind(this)}>
           <div>
             <label>Name</label>
