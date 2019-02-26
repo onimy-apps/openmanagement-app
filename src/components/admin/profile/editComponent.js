@@ -3,6 +3,7 @@ import { adminProfileAction, adminProfileUpdateAction } from '../../../actions/a
 import { getCookie } from '../../../utils/cookies';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import EditForm from './editForm';
 
 class Edit extends Component {
   _success = undefined;
@@ -69,58 +70,12 @@ class Edit extends Component {
   render() {
     return (
       <div>
-        {(this._success) ? <Redirect to='/admin/profile' /> : <div>{this.state.message}</div>}
-        <form onSubmit={this.onUpdateProfile.bind(this)}>
-          <div>
-            <label>Name</label>
-            <input
-              type='text'
-              name='name'
-              defaultValue={this.props.adminProfile.response.name} />
-          </div>
-          <div>
-            <label>Email</label>
-            <input
-              type='email'
-              name='email'
-              defaultValue={this.props.adminProfile.response.email} />
-          </div>
-          <div>
-            <label>Position</label>
-            <input
-              type='text'
-              name='position'
-              defaultValue={this.props.adminProfile.response.position} />
-          </div>
-          <div>
-            <label>Username</label>
-            <input
-              type='text'
-              name='username'
-              defaultValue={this.props.adminProfile.response.username} />
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              type='password'
-              name='password' />
-          </div>
-          <div>
-            <label>Role</label>
-            <select
-              name='role'
-              defaultValue={this.props.adminProfile.response.role}>
-              <option>Select One</option>
-              <option value='Employee'>Employee</option>
-              <option value='Manager'>Manager</option>
-              <option value='Admin'>Admin</option>
-            </select>
-          </div>
-          <div>
-            <button>Update</button>
-            <button onClick={this.onCancelHandle.bind(this)}>Cancel</button>
-          </div>
-        </form>
+        <EditForm
+          data={this.props.adminProfile.response}
+          success={this._success}
+          message={this.state.message}
+          onCancelHandle={this.onCancelHandle}
+          onUpdateProfile={this.onUpdateProfile} />
       </div>
     );
   }
