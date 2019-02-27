@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { newEmployeeAction } from '../../../actions/admin';
+import { getCookie } from '../../../utils/cookies';
 
 class New extends Component {
   state = {
@@ -11,6 +12,10 @@ class New extends Component {
       password: undefined,
       role: undefined,
       position: undefined
+    },
+    access: {
+      id: getCookie('id'),
+      role: getCookie('role')
     },
     success: undefined,
     message: undefined
@@ -26,10 +31,13 @@ class New extends Component {
         username: event.target.username.value,
         password: event.target.password.value,
         role: event.target.role.value,
-        position: event.target.position.value,  
+        position: event.target.position.value
       }
     }, () => {
-      this.props.dispatch(newEmployeeAction(this.state.data));
+      this.props.dispatch(newEmployeeAction({
+        data: this.state.data,
+        access: this.state.access
+      }));
     });
   }
 
