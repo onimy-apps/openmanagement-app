@@ -47,11 +47,11 @@ class New extends Component {
         success: nextProps.newReducer.response.success,
         message: nextProps.newReducer.response.message
       }
-    } else {
-      return {
-        success: undefined,
-        message: undefined
-      }
+    }
+    
+    return {
+      success: undefined,
+      message: undefined
     }
   }
 
