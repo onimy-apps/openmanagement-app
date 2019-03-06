@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { loginUserAction } from '../actions/authenticationActions';
-import { setCookie } from '../utils/cookies';
+import { setCookie, getCookie } from '../utils/cookies';
 
 class LoginPage extends Component {
   onHandleLogin = (event) => {
@@ -37,7 +37,7 @@ class LoginPage extends Component {
     return (
       <div>
         <h3>Login Page</h3>
-        {!isSuccess ? <div>{message}</div> : <Redirect to='admin' />}
+        {(isSuccess && getCookie('role') === 'Admin') ? <Redirect to='admin' /> : ((isSuccess && getCookie('role') === 'Employee') ? <Redirect to='/employee' /> : <div>{message}</div>)}
         <form onSubmit={this.onHandleLogin}>
           <div>
             <label>Username</label>
