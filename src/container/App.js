@@ -21,6 +21,7 @@ class App extends Component {
             <Route path='/register' component={RegisterPage} />
             <PrivateRoute path='/admin' component={Header} />
             <PrivateRoute path='/employee' component={Header} />
+            <PrivateRoute path='/manager' component={Header} />
           </Switch>
         </div>
       </BrowserRouter>
