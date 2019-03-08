@@ -37,7 +37,21 @@ class LoginPage extends Component {
     return (
       <div>
         <h3>Login Page</h3>
-        {(isSuccess && getCookie('role') === 'Admin') ? <Redirect to='admin' /> : ((isSuccess && getCookie('role') === 'Employee') ? <Redirect to='/employee' /> : <div>{message}</div>)}
+        {
+          (isSuccess && getCookie('role') === 'Admin')
+          ?
+          <Redirect to='admin' />
+          :
+          ((isSuccess && getCookie('role') === 'Employee')
+            ? <Redirect to='/employee' />
+            :
+            ((isSuccess && getCookie('role') === 'Manager')
+            ?
+            <Redirect to='/manager' />
+            :
+            <div>{message}</div>
+            ))
+        }
         <form onSubmit={this.onHandleLogin}>
           <div>
             <label>Username</label>
