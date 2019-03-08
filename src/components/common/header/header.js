@@ -6,6 +6,7 @@ import New from '../../admin/new/newComponent';
 import Profile from '../../admin/profile/profileComponent';
 import Logout from '../../logoutComponent';
 import { getCookie } from '../../../utils/cookies';
+import List from '../../employees/list/listComponent';
 
 const Header = ({ match }) => (
   <div>
@@ -16,7 +17,7 @@ const Header = ({ match }) => (
       <li><Link to={`${match.path}/logout`}>Logout</Link></li>
     </ul>
     <div>Welcome {getCookie('name')}</div>
-    <Route path={`${match.path}/dashboard`} component={Employees} />
+    <Route path={`${match.path}/dashboard`} component={List} />
     <Route path={`${match.path}/new`} component={New} />
     <Route path={`${match.path}/profile`} component={Profile} />
     <Route path={`${match.path}/logout`} component={Logout} />
