@@ -1,7 +1,7 @@
 import { getCookie } from '../../utils/cookies';
 
 export const projectsService = (request) => {
-  const PROJECTS_ENDPOINT = `http://localhost:3000/api/v1/employee/projects?id=${request.user.id}`;
+  const PROJECTS_ENDPOINT = `http://localhost:3000/api/v1/employee/projects?id=${request.user.id}&role=${request.user.role}`;
   
   const parameters = {
     method: 'GET',
