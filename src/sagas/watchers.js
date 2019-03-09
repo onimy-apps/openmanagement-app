@@ -4,7 +4,7 @@ import { newSaga } from './admin/newSaga';
 import { list } from './admin/listSaga';
 import { profile, updateProfile } from './admin/profileSaga';
 import { projects } from './employees/projectsSaga';
-import { create } from './employees/createSaga';
+import { create } from './managers/createSaga';
 
 import * as types from '../actions';
 
