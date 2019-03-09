@@ -4,6 +4,7 @@ import { newSaga } from './admin/newSaga';
 import { list } from './admin/listSaga';
 import { profile, updateProfile } from './admin/profileSaga';
 import { projects } from './employees/projectsSaga';
+import { create } from './employees/createSaga';
 
 import * as types from '../actions';
 
@@ -16,4 +17,5 @@ export default function* watchUserAuthentication() {
   yield takeLatest(types.FETCH_ADMIN_PROFILE, profile);
   yield takeLatest(types.UPDATE_ADMIN_PROFILE, updateProfile);
   yield takeLatest(types.FETCH_PROJECTS_LIST, projects);
+  yield takeLatest(types.CREATE_PROJECT, create);
 }
