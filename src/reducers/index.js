@@ -6,6 +6,7 @@ import list from './admin/listReducer';
 import adminProfile from './admin/profileReducer';
 import updateProfile from './admin/updateProfileReducer';
 import createProject from './managers/createProjectReducer';
+import projects from './employees/projectsReducer';
 
 const rootReducer = combineReducers({
   register,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   list,
   adminProfile,
   updateProfile,
-  createProject
+  createProject,
+  projects
 });
 
 export default rootReducer;
